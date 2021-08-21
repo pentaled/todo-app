@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Todo App</title>
+        <!-- bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="/assets/style.css" type="text/css">
+    </head>
+    <body>
+        <div id="main">
+            <div class="header">
+                <h3 class="hero">Today</h3>
+                <p>
+                    You have <%= tasks.length %> tasks to complete.
+                </p>
+            </div>
+            <div id="form" class="d-grid gap-2">
+                <button class="btn btn-primary">New Tasks</button>
+            </div>
+            <div class="list">
+                <% tasks.forEach((item) => { %>
+                    <div>
+                       <%= item.task %>
+                    </div>
+              <% }); %>
+            </div>
+        </div>
+    </body>
+</html>

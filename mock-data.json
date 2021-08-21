@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1A", 
+        "task": "Buy 2 dozens of eggs", 
+        "status": "new"
+    },
+    {
+        "id": "2B", 
+        "task": "Pay water bills", 
+        "status": "new"
+    },
+    {
+        "id": "3C", 
+        "task": "Eat 7 boxes of chocolates", 
+        "status": "new"
+    }
+]
