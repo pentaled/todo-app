@@ -1,3 +1,9 @@
 # todo-app
 
-## dev
+## Installation
+
+Run the following command to get started. 
+```
+npm install
+npm start
+```
