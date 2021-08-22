@@ -32,6 +32,7 @@ body {
     margin-top: 17.5px;
     margin-left: 15px;
 }
+
 #check {
     color: gray;
     outline: none;
@@ -43,6 +44,34 @@ body {
 }
 
 #check:hover {
+    color: #c842f5;
+}
+
+#edit {
+    color: gray;
+    outline: none;
+    border: none;
+    background-color: white;
+    padding: none;
+    align-content: left;
+    justify-content: left;
+}
+
+#edit:hover {
+    color: #c842f5;
+}
+
+#bin {
+    color: gray;
+    outline: none;
+    border: none;
+    background-color: white;
+    padding: none;
+    align-content: left;
+    justify-content: left;
+}
+
+#bin:hover {
     color: #c842f5;
 }
 
