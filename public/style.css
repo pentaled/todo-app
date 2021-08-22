@@ -18,3 +18,36 @@ body {
 #form {
     margin-bottom: 20px;
 }
+
+.notask {
+    color: #c842f5;
+    font-weight: 750;
+}
+
+#tasks {
+    margin-bottom: 5px;
+}
+
+.par {
+    margin-top: 17.5px;
+    margin-left: 15px;
+}
+#check {
+    color: gray;
+    outline: none;
+    border: none;
+    background-color: white;
+    padding: none;
+    align-content: left;
+    justify-content: left;
+}
+
+#check:hover {
+    color: #c842f5;
+}
+
+.text_left {
+    margin-left: 350px;
+    margin-top: -22.5px;
+}
+    
