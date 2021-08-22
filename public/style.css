@@ -1,5 +1,5 @@
 body {
-    background-color: #e8e8e8;
+    background-color: #c2c2c2;
 }
 
 #main {
@@ -33,6 +33,11 @@ body {
     margin-left: 15px;
 }
 
+#actton {
+    margin-left: 365px;
+    margin-top: -22.5px;
+}
+
 #check {
     color: gray;
     outline: none;
@@ -41,10 +46,17 @@ body {
     padding: none;
     align-content: left;
     justify-content: left;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.25rem;
+    transition-duration: 0.5s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 #check:hover {
     color: #c842f5;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #edit {
@@ -55,10 +67,17 @@ body {
     padding: none;
     align-content: left;
     justify-content: left;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.25rem;
+    transition-duration: 0.5s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 #edit:hover {
     color: #c842f5;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #bin {
@@ -69,10 +88,17 @@ body {
     padding: none;
     align-content: left;
     justify-content: left;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.25rem;
+    transition-duration: 0.5s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 #bin:hover {
     color: #c842f5;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .text_left {
