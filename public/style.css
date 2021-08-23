@@ -1,5 +1,5 @@
-body {
-    background-color: #c2c2c2;
+#body {
+    background-color: #e8e8e8;
 }
 
 #main {
@@ -21,12 +21,16 @@ body {
 
 .notask {
     color: #c842f5;
-    font-weight: 750;
+    font-weight: bold;
 }
 
 #tasks {
     margin-bottom: 5px;
+    background-color: white;
+    border: none;
 }
+
+
 
 .par {
     margin-top: 17.5px;
@@ -35,7 +39,7 @@ body {
 
 #actton {
     margin-left: 365px;
-    margin-top: -22.5px;
+    margin-top: -23px;
 }
 
 #check {
@@ -44,19 +48,44 @@ body {
     border: none;
     background-color: white;
     padding: none;
-    align-content: left;
-    justify-content: left;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
     transition-duration: 0.5s;
-    text-decoration: none;
     overflow: hidden;
     cursor: pointer;
 }
 
 #check:hover {
     color: #c842f5;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 8px 16px 0 rgba(196, 54, 224, 0.2), 0 6px 20px 0 rgba(200,66,245,0.34);
+}
+
+[data-check] {
+    position: relative;
+    cursor: default;
+}
+
+[data-check]::after {
+    position: absolute;
+    width: 140px;
+    left: calc(50% - 70px);
+    bottom: 125%;
+    text-align: center;
+    box-sizing: border-box;
+    content: attr(data-check);
+    color: #ffffff;
+    background-color: rgba(93, 231, 81, 0.75);
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+[data-check]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
 }
 
 #edit {
@@ -65,19 +94,44 @@ body {
     border: none;
     background-color: white;
     padding: none;
-    align-content: left;
-    justify-content: left;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
     transition-duration: 0.5s;
-    text-decoration: none;
     overflow: hidden;
     cursor: pointer;
 }
 
 #edit:hover {
     color: #c842f5;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 8px 16px 0 rgba(196, 54, 224, 0.2), 0 6px 20px 0 rgba(200,66,245,0.34);
+}
+
+[data-pen] {
+    position: relative;
+    cursor: default;
+}
+
+[data-pen]::after {
+    position: absolute;
+    width: 140px;
+    left: calc(50% - 70px);
+    bottom: 125%;
+    text-align: center;
+    box-sizing: border-box;
+    content: attr(data-pen);
+    color: #ffffff;
+    background-color: rgba(198, 209, 47, 0.75);
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+[data-pen]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
 }
 
 #bin {
@@ -86,23 +140,42 @@ body {
     border: none;
     background-color: white;
     padding: none;
-    align-content: left;
-    justify-content: left;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
     transition-duration: 0.5s;
-    text-decoration: none;
     overflow: hidden;
     cursor: pointer;
 }
 
 #bin:hover {
     color: #c842f5;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 8px 16px 0 rgba(196, 54, 224, 0.2), 0 6px 20px 0 rgba(200,66,245,0.34);
 }
 
-.text_left {
-    margin-left: 350px;
-    margin-top: -22.5px;
+[data-bin] {
+    position: relative;
+    cursor: default;
 }
-    
+
+[data-bin]::after {
+    position: absolute;
+    width: 140px;
+    left: calc(50% - 70px);
+    bottom: 125%;
+    text-align: center;
+    box-sizing: border-box;
+    content: attr(data-bin);
+    color: #ffffff;
+    background-color: rgba(236, 119, 119, 0.75);
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+[data-bin]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+}
