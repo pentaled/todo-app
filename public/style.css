@@ -26,11 +26,16 @@
 
 #tasks {
     margin-bottom: 5px;
-    background-color: white;
+    background: white;
+    box-shadow: none;
     border: none;
+    transition-duration: 0.5s;
 }
 
-
+#tasks:hover{
+    background: #fcfcfc;
+    box-shadow: 0 8px 20px 0 rgba(201, 51, 231, 0.37), 0 8px 20px 0 rgba(201, 51, 231, 0.40);
+}
 
 .par {
     margin-top: 17.5px;
@@ -38,16 +43,15 @@
 }
 
 #actton {
-    margin-left: 365px;
+    margin-left: 360px;
     margin-top: -23px;
-}
+}  
 
 #check {
     color: gray;
     outline: none;
     border: none;
     background-color: white;
-    padding: none;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
     transition-duration: 0.5s;
@@ -93,7 +97,6 @@
     outline: none;
     border: none;
     background-color: white;
-    padding: none;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
     transition-duration: 0.5s;
@@ -139,7 +142,6 @@
     outline: none;
     border: none;
     background-color: white;
-    padding: none;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
     transition-duration: 0.5s;
