@@ -32,9 +32,9 @@
     transition-duration: 0.5s;
 }
 
-#tasks:hover{
+#tasks:hover {
     background: #fcfcfc;
-    box-shadow: 0 8px 20px 0 rgba(201, 51, 231, 0.37), 0 8px 20px 0 rgba(201, 51, 231, 0.40);
+    box-shadow: 0px 0px 0px rgba(66, 80, 207, 0.5), 10px 10px 15px rgba(66, 80, 207, 0.10);
 }
 
 .par {
@@ -44,19 +44,19 @@
 
 #actton {
     margin-left: 360px;
-    margin-top: -23px;
+    margin-top: -22.5px;
 }  
 
 #check {
-    color: gray;
     outline: none;
     border: none;
+    overflow: hidden;
+    cursor: pointer;
+    color: gray;
     background-color: white;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
     transition-duration: 0.5s;
-    overflow: hidden;
-    cursor: pointer;
 }
 
 #check:hover {
@@ -71,18 +71,19 @@
 
 [data-check]::after {
     position: absolute;
-    width: 140px;
-    left: calc(50% - 70px);
-    bottom: 125%;
-    text-align: center;
+    width: 70px;
+    left: -170px;
+    bottom: -17.5px;
+    border-radius: 5px;
     box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
     content: attr(data-check);
+    text-align: center;
+    font-size: 12.5px;
     color: #ffffff;
     background-color: rgba(93, 231, 81, 0.75);
-    border-radius: 5px;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(5px);
+    transform: translateY(10px);
     transition: opacity 0.3s, transform 0.2s;
 }
 
@@ -93,15 +94,15 @@
 }
 
 #edit {
-    color: gray;
     outline: none;
     border: none;
+    overflow: hidden;
+    cursor: pointer;
+    color: gray;
     background-color: white;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
     transition-duration: 0.5s;
-    overflow: hidden;
-    cursor: pointer;
 }
 
 #edit:hover {
@@ -116,18 +117,19 @@
 
 [data-pen]::after {
     position: absolute;
-    width: 140px;
-    left: calc(50% - 70px);
-    bottom: 125%;
-    text-align: center;
+    width: 70px;
+    left: -198px;
+    bottom: -17.5px;
+    border-radius: 5px;
     box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
     content: attr(data-pen);
+    text-align: center;
+    font-size: 12.5px;
     color: #ffffff;
     background-color: rgba(198, 209, 47, 0.75);
-    border-radius: 5px;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(5px);
+    transform: translateY(10px);
     transition: opacity 0.3s, transform 0.2s;
 }
 
@@ -138,15 +140,15 @@
 }
 
 #bin {
-    color: gray;
     outline: none;
     border: none;
+    overflow: hidden;
+    cursor: pointer;
+    color: gray;
     background-color: white;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
     transition-duration: 0.5s;
-    overflow: hidden;
-    cursor: pointer;
 }
 
 #bin:hover {
@@ -161,18 +163,19 @@
 
 [data-bin]::after {
     position: absolute;
-    width: 140px;
-    left: calc(50% - 70px);
-    bottom: 125%;
-    text-align: center;
+    width: 70px;
+    left: -226.5px;
+    bottom: -17.5px;
+    border-radius: 5px;
     box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
     content: attr(data-bin);
+    text-align: center;
+    font-size: 12.5px;
     color: #ffffff;
     background-color: rgba(236, 119, 119, 0.75);
-    border-radius: 5px;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(5px);
+    transform: translateY(10px);
     transition: opacity 0.3s, transform 0.2s;
 }
 
