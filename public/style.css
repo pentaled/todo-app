@@ -1,29 +1,30 @@
+/*Background Colour For Website*/
 #body {
     background-color: #e8e8e8;
 }
-
+/*Size of Canvas*/
 #main {
     width: 480px;
     margin: 20px auto;
 }
-
+/*Today Location*/
 .header {
     margin-bottom: 20px;
 }
-
+/*Today Display*/
 .header > h3 {
     font-size: 2.2rem;
 }
-
+/*Location Of New Task Card*/
 #form {
     margin-bottom: 20px;
 }
-
+/*Tasks Text Body Display*/
 .notask {
     color: #c842f5;
     font-weight: bold;
 }
-
+/*Card Display*/
 #tasks {
     margin-bottom: 5px;
     background: white;
@@ -31,22 +32,22 @@
     border: none;
     transition-duration: 0.5s;
 }
-
+/*Card Hisplay*/
 #tasks:hover {
     background: #fcfcfc;
-    box-shadow: 0px 0px 0px rgba(66, 80, 207, 0.5), 10px 10px 15px rgba(66, 80, 207, 0.10);
+    box-shadow: 0px 0px 0px rgba(76, 92, 236, 0.5), 10px 10px 15px rgba(76, 92, 236, 0.10);
 }
-
+/*Tasks Text Card Location*/
 .par {
     margin-top: 17.5px;
     margin-left: 15px;
 }
-
+/*Button Location*/
 #actton {
     margin-left: 360px;
     margin-top: -22.5px;
 }  
-
+/*Check Button Display*/
 #check {
     outline: none;
     border: none;
@@ -58,17 +59,17 @@
     padding: 0.25rem 0.25rem;
     transition-duration: 0.5s;
 }
-
+/*Check Button Hisplay*/ 
 #check:hover {
     color: #c842f5;
     box-shadow: 0 8px 16px 0 rgba(196, 54, 224, 0.2), 0 6px 20px 0 rgba(200,66,245,0.34);
 }
-
+/*Check Tooltip Position*/
 [data-check] {
     position: relative;
     cursor: default;
 }
-
+/*Check Tooltip Display*/
 [data-check]::after {
     position: absolute;
     width: 70px;
@@ -86,13 +87,13 @@
     transform: translateY(10px);
     transition: opacity 0.3s, transform 0.2s;
 }
-
+/*Check Button - Tooltip Hisplay*/
 [data-check]:hover::after {
     opacity: 1;
     visibility: visible;
     transform: translateY(0px);
 }
-
+/*Edit Button Display*/
 #edit {
     outline: none;
     border: none;
@@ -104,17 +105,17 @@
     padding: 0.25rem 0.25rem;
     transition-duration: 0.5s;
 }
-
+/*Edit Button Hisplay*/
 #edit:hover {
     color: #c842f5;
     box-shadow: 0 8px 16px 0 rgba(196, 54, 224, 0.2), 0 6px 20px 0 rgba(200,66,245,0.34);
 }
-
+/*Edit Tooltip Position*/
 [data-pen] {
     position: relative;
     cursor: default;
 }
-
+/*Edit Tooltip Display*/
 [data-pen]::after {
     position: absolute;
     width: 70px;
@@ -132,13 +133,13 @@
     transform: translateY(10px);
     transition: opacity 0.3s, transform 0.2s;
 }
-
+/*Edit Button - Tooltip Hisplay*/
 [data-pen]:hover::after {
     opacity: 1;
     visibility: visible;
     transform: translateY(0px);
 }
-
+/*Bin Button Display*/
 #bin {
     outline: none;
     border: none;
@@ -150,17 +151,17 @@
     padding: 0.25rem 0.25rem;
     transition-duration: 0.5s;
 }
-
+/*Bin Button Hisplay*/
 #bin:hover {
     color: #c842f5;
     box-shadow: 0 8px 16px 0 rgba(196, 54, 224, 0.2), 0 6px 20px 0 rgba(200,66,245,0.34);
 }
-
+/*Bin Tooltip Position*/
 [data-bin] {
     position: relative;
     cursor: default;
 }
-
+/*Bin Tooltip Display*/
 [data-bin]::after {
     position: absolute;
     width: 70px;
@@ -178,7 +179,7 @@
     transform: translateY(10px);
     transition: opacity 0.3s, transform 0.2s;
 }
-
+/*Bin Button - Tooltip Hisplay*/
 [data-bin]:hover::after {
     opacity: 1;
     visibility: visible;
