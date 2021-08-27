@@ -51,13 +51,11 @@
 #check {
     outline: none;
     border: none;
-    overflow: hidden;
-    cursor: pointer;
     color: gray;
     background-color: white;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
-    transition-duration: 0.5s;
+    transition-duration: 0.2s;
 }
 /*Check Button Hisplay*/ 
 #check:hover {
@@ -97,13 +95,11 @@
 #edit {
     outline: none;
     border: none;
-    overflow: hidden;
-    cursor: pointer;
     color: gray;
     background-color: white;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
-    transition-duration: 0.5s;
+    transition-duration: 0.4s;
 }
 /*Edit Button Hisplay*/
 #edit:hover {
@@ -143,13 +139,11 @@
 #bin {
     outline: none;
     border: none;
-    overflow: hidden;
-    cursor: pointer;
     color: gray;
     background-color: white;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
-    transition-duration: 0.5s;
+    transition-duration: 0.6s;
 }
 /*Bin Button Hisplay*/
 #bin:hover {
