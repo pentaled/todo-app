@@ -7,11 +7,11 @@
     width: 480px;
     margin: 20px auto;
 }
-/*Today Location*/
+/*-Today- Location*/
 .header {
     margin-bottom: 20px;
 }
-/*Today Display*/
+/*-Today- Display*/
 .header > h3 {
     font-size: 2.2rem;
 }
@@ -33,50 +33,47 @@
 }
 /*Tasks Text Card Location*/
 .par {
-    margin-top: 17.5px;
     margin-left: 15px;
+    margin-top: 17.5px;
 }
 /*Button Location*/
 #actton {
     margin-left: 360px;
     margin-top: -22.5px;
-}  
-/*Check Button Display*/
+} 
+/*-Check- Button Display*/
 #check {
-    outline: none;
-    border: none;
     color: gray;
     background-color: white;
+    border: none;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
 }
-/*Check Button Hisplay*/ 
+/*-Check- Button Hisplay*/ 
 #check:hover {
     color: #c842f5;
 }
-/*Edit Button Display*/
+/*-Edit- Button Display*/
 #edit {
-    outline: none;
-    border: none;
     color: gray;
     background-color: white;
+    border: none;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
 }
-/*Edit Button Hisplay*/
+/*-Edit- Button Hisplay*/
 #edit:hover {
     color: #c842f5;
 }
-/*Bin Button Display*/
+/*-Bin- Button Display*/
 #bin {
-    outline: none;
-    border: none;
     color: gray;
     background-color: white;
+    border: none;
     border-radius: 0.25rem;
     padding: 0.25rem 0.25rem;
 }
-/*Bin Button Hisplay*/
+/*-Bin- Button Hisplay*/
 #bin:hover {
     color: #c842f5;
 }
