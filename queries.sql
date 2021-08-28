@@ -1,0 +1,1 @@
+SELECT * FROM todo.tasks WHERE todo.tasks.status = "NEW";
