@@ -18,3 +18,33 @@ body {
 #form {
     margin-bottom: 20px;
 }
+
+.highlight {
+    font-weight: 700;
+    color: #c842f5;
+}
+
+.card {
+    margin-bottom: 5px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    margin-left: auto;
+}
+
+.action {
+    border: 0;
+    background-color: transparent;
+    color: #666666;
+}
+
+.action:hover {
+    color: #c842f5;
+}

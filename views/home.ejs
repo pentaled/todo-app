@@ -5,29 +5,47 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Todo App</title>
-        <!-- bootstrap -->
+        <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-
+         <!-- FontAwesome -->
+        <script src="https://kit.fontawesome.com/83b12368a8.js" crossorigin="anonymous"></script>
+        <!-- Local CSS -->
         <link rel="stylesheet" href="/assets/style.css" type="text/css">
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="main">
             <div class="header">
                 <h3 class="hero">Today</h3>
                 <p>
-                    You have <%= tasks.length %> tasks to complete.
+                    You have 
+                    <span class="highlight"><%= tasks.length %> tasks</span>
+                    to complete.
                 </p>
             </div>
             <div id="form" class="d-grid gap-2">
                 <button class="btn btn-primary">New Tasks</button>
             </div>
             <div class="list">
-                <% tasks.forEach((item) => { %>
-                    <div>
-                       <%= item.task %>
+                <% for(let i = 0; i < tasks.length; i++ ){ %>
+                    <div class="card">
+                        <div class="card-body">
+                            <%= tasks[i].task %>
+                            <div class="buttons">
+                                <button class="action">
+                                    <i class="far fa-check-circle"></i>
+                                </button>
+                                <button class="action">
+                                    <i class="far fa-pen"></i>
+                                </button>
+                                <button class="action">
+                                    <i class="far fa-trash"></i>
+                                </button>
+                            </div>
+                       </div>
                     </div>
-              <% }); %>
+                  <% }; %>
             </div>
         </div>
     </body>
