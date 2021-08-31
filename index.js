@@ -1,11 +1,14 @@
 const express = require('express')
+const Task = require('./models/Task')
 const mockData = require('./mock-data.json')
 const app = express()
+require('dotenv').config()
 
 app.listen(3000);
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
+app.set('view engine', 'ejs');
+app.use('/assets', express.static('public'))
 
-app.get('/', function (req, res) {
-	res.render('home', { tasks : mockData}); 
+app.get('/', async (req, res) => {
+	const results = await Task.read()
+	res.render('home', { tasks: results });
 });

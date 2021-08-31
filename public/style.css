@@ -1,79 +1,50 @@
-/*Background Colour For Website*/
-#body {
+body {
     background-color: #e8e8e8;
 }
-/*Size of Canvas*/
+
 #main {
     width: 480px;
     margin: 20px auto;
 }
-/*-Today- Location*/
+
 .header {
     margin-bottom: 20px;
 }
-/*-Today- Display*/
+
 .header > h3 {
     font-size: 2.2rem;
 }
-/*Location Of New Task Card*/
+
 #form {
     margin-bottom: 20px;
 }
-/*Tasks Text Body Display*/
-.notask {
+
+.highlight {
+    font-weight: 700;
     color: #c842f5;
-    font-weight: bold;
 }
-/*Card Display*/
-#tasks {
-    background: white;
-    box-shadow: none;
-    border: none;
+
+.card {
     margin-bottom: 5px;
 }
-/*Tasks Text Card Location*/
-.par {
-    margin-left: 15px;
-    margin-top: 17.5px;
+
+.card-body {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
-/*Button Location*/
-#actton {
-    margin-left: 360px;
-    margin-top: -22.5px;
-} 
-/*-Check- Button Display*/
-#check {
-    color: gray;
-    background-color: white;
-    border: none;
-    border-radius: 0.25rem;
-    padding: 0.25rem 0.25rem;
+
+.buttons {
+    display: flex;
+    margin-left: auto;
 }
-/*-Check- Button Hisplay*/ 
-#check:hover {
-    color: #c842f5;
+
+.action {
+    border: 0;
+    background-color: transparent;
+    color: #666666;
 }
-/*-Edit- Button Display*/
-#edit {
-    color: gray;
-    background-color: white;
-    border: none;
-    border-radius: 0.25rem;
-    padding: 0.25rem 0.25rem;
-}
-/*-Edit- Button Hisplay*/
-#edit:hover {
-    color: #c842f5;
-}
-/*-Bin- Button Display*/
-#bin {
-    color: gray;
-    background-color: white;
-    border: none;
-    border-radius: 0.25rem;
-    padding: 0.25rem 0.25rem;
-}
-/*-Bin- Button Hisplay*/
-#bin:hover {
+
+.action:hover {
     color: #c842f5;
 }
