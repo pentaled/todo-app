@@ -9,7 +9,7 @@ module.exports = {
             database: process.env.DB_NAME
         })
         
-        const [rows] =  await connection.execute('SELECT * FROM todo.tasks;')
+        const [rows] =  await connection.execute('SELECT * FROM todo.tasks;') //('SELECT * FROM `table` WHERE `name` = ? AND `age` > ?', ['Morty', 14])//
         return rows
     }
 }
