@@ -17,6 +17,9 @@ body {
 
 #form {
     margin-bottom: 20px;
+    padding: 20px; 
+    border-radius: 4px;
+    background-color: #ffffff;
 }
 
 .highlight {
@@ -43,6 +46,7 @@ body {
     border: 0;
     background-color: transparent;
     color: #666666;
+    padding: 1px 6px;
 }
 
 .action:hover {
