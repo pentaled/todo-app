@@ -21,13 +21,21 @@
                 </p>
             </div>
             <div id="form" class="d-grid gap-2">
-                <button class="btn btn-primary">New Tasks</button>
-            </div>
+                <form action="/task/create" method="POST">
+                    <div class="mb-3">
+                        <label for="taskLabel" class="form-label">Create a task</label>
+                        <input type="text" name="task" class="form-control" id="taskLabel" placeholder="Write a task like meeting at 2pm">
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="submit" >Create</button>
+                    </div>
+                </form>
+            </div>            
             <div class="list">
-                <% for(let i = 0; i < tasks.length; i++ ){ %>
+                <% tasks.forEach((item) => { %>
                     <div class="card">
                         <div class="card-body">
-                            <%= tasks[i].task %>
+                            <%= item.task %>
                             <div class="buttons">
                                 <button class="action">
                                     <i class="far fa-check-circle"></i>
@@ -35,13 +43,13 @@
                                 <button class="action">
                                     <i class="far fa-pen"></i>
                                 </button>
-                                <button class="action">
+                                <a href="/task/delete/<%= item.id %>" class="action">
                                     <i class="far fa-trash"></i>
-                                </button>
+                                </a>
                             </div>
                        </div>
                     </div>
-                <% }; %>
+                  <% }); %>
             </div>
         </div>
     </body>
