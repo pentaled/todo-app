@@ -26,3 +26,8 @@ app.get('/task/delete/:id', async (req, res) => {
 	await Task.destroy(req.params.id)
 	res.redirect('/')
 });
+
+app.get('/task/done/:id', async (req, res) => {
+	await Task.done(req.params.id)
+	res.redirect('/')
+});

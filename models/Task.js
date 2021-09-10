@@ -21,6 +21,10 @@ module.exports = {
     async destroy(id) {
         const [rows] =  await this.execute('DELETE FROM todo.tasks WHERE todo.tasks.id = (?);', [id])
         return rows
+    },
+    async done() {
+        const [rows] =  await this.execute('UPDATE todo.tasks SET todo.tasks.status = (?);', ['DONE'])
+        return rows
     }
 }
 
