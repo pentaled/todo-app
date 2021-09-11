@@ -1,60 +1,52 @@
-<!doctype html>
-<html lang="en">
-  <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Todo App</title>
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-         <!-- FontAwesome -->
-        <script src="https://kit.fontawesome.com/83b12368a8.js" crossorigin="anonymous"></script>
-        <!-- Local CSS -->
-        <link rel="stylesheet" href="/assets/style.css" type="text/css">
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div id="main">
-            <div class="header">
-                <h3 class="hero">Today</h3>
-                <p>
-                    You have 
-                    <span class="highlight"><%= tasks.length %> tasks</span>
-                    to complete.
-                </p>
-            </div>
-            <div id="form" class="d-grid gap-2">
-                <form action="/task/create" method="post">
-                    <div class="mb-3">
-                        <label for="taskLabel" class="form-label">Create a task</label>
-                        <input type="text" name="task" class="form-control" id="taskLabel" placeholder="Write a task like meeting at 4pm">
-                    </div>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-primary" type="submit" >Create</button>
-                    </div>
-                </form>
-            </div>
-            <div class="list">
-                <% tasks.forEach((item) => { %>
-                    <div class="card">
-                        <div class="card-body">
-                            <%= item.task %>
-                            <div class="buttons">
-                                <button class="action">
-                                    <i class="far fa-check-circle"></i>
-                                </button>
-                                <button class="action">
-                                    <i class="far fa-pen"></i>
-                                </button>
-                                <a href="/task/delete/<%= item.id %>" class="action">
-                                    <i class="far fa-trash"></i>
-                                </a>
-                            </div>
-                       </div>
-                    </div>
-                  <% }); %>
-            </div>
+<%- include('header'); -%>
+<div class="header">
+    <h3 class="hero">Today</h3>
+    <p>
+        You have
+        <span class="highlight">
+            <%= tasks.length %> tasks
+        </span>
+        to complete.
+    </p>
+</div>
+<div id="form" class="d-grid gap-2">
+    <form action="/task/create" method="post">
+        <div class="mb-3">
+            <label for="taskLabel" class="form-label">Create a task</label>
+            <input type="text" name="task" class="form-control" id="taskLabel"
+                placeholder="Write a task like meeting at 4pm">
         </div>
-    </body>
-</html>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Create</button>
+        </div>
+    </form>
+</div>
+<div class="list">
+    <% if(tasks.length> 0){ %>
+        <% tasks.forEach((item)=> { %>
+            <div class="card">
+                <div class="card-body">
+                    <%= item.task %>
+                        <div class="buttons">
+                            <a href="/task/done/<%= item.id %>" class="action">
+                                <i class="far fa-check-circle"></i>
+                            </a>
+                            <a href="/task/edit/<%= item.id %>" class="action btn">
+                                <i class="far fa-pen"></i>
+                            </a>
+                            <a href="/task/delete/<%= item.id %>" class="action">
+                                <i class="far fa-trash"></i>
+                            </a>
+                        </div>
+                </div>
+            </div>
+            <% }); %>
+    <% } else { %>
+        <p>It's time to add a task.</p>
+    <% }; %>
+
+
+
+    
+</div>
+<%- include('footer'); -%>

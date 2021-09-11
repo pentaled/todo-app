@@ -11,7 +11,7 @@ module.exports = {
         return await connection.execute(query, params)
     },
     async read() {
-        const [rows] =  await this.execute('SELECT * FROM todo.tasks WHERE todo.tasks.status = ?;', ['NEW'])
+        const [rows] =  await this.execute('SELECT * FROM todo.tasks WHERE todo.tasks.status = "NEW"')
         return rows
     },
     async create(task) {
@@ -20,5 +20,15 @@ module.exports = {
     },
     async destroy(id) {
         return await this.execute('DELETE FROM todo.tasks WHERE todo.tasks.id = ?', [id])
+    },
+    async updateStatus(id) {
+        return await this.execute('UPDATE todo.tasks SET todo.tasks.status = "DONE" WHERE todo.tasks.id = ?', [id])
+    },
+    async getById(id) {
+        const [rows] = await this.execute('SELECT * FROM todo.tasks WHERE todo.tasks.status = "NEW" AND todo.tasks.id = ?', [id])
+        return rows
+    },
+    async updateTask(id, task) {
+        return await this.execute('UPDATE todo.tasks SET todo.tasks.task = ? WHERE todo.tasks.id = ?', [task, id])
     }
 }

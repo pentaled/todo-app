@@ -1,0 +1,17 @@
+<%- include('header'); -%>
+    <div class="header">
+        <h3 class="hero">Update</h3>
+    </div>
+    <div id="form" class="d-grid gap-2">
+        <form action="/task/edit" method="POST">
+            <div class="mb-3">
+                <label for="taskLabel" class="form-label">Task</label>
+                <input type="text" name="task" class="form-control" id="taskLabel" value="<%= data.task %>">
+                <input type="hidden" name="id" value="<%= data.id %>">
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+<%- include('footer'); -%>
