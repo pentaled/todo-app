@@ -33,5 +33,9 @@ module.exports = {
             await Task.updateTask(req.body.id, req.body.task)
         }
         res.redirect('/');
+    },
+    async filterTask (req, res) {
+        const results = await Task.read()
+	    res.render('filter', { tasks: results });
     }
 }

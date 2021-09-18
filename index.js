@@ -1,5 +1,4 @@
 const express = require('express')
-const Task = require('./models/Task')
 const TaskController = require('./controllers/TaskController')
 const app = express()
 require('dotenv').config()
@@ -20,3 +19,5 @@ app.get('/task/done/:id', TaskController.doneTask);
 app.get('/task/edit/:id', TaskController.editTask);
 
 app.post('/task/edit/', TaskController.saveTask);
+
+app.get('/task/filter', TaskController.filterTask);
