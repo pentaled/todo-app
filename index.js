@@ -21,3 +21,5 @@ app.get('/task/edit/:id', TaskController.editTask);
 app.post('/task/edit/', TaskController.saveTask);
 
 app.get('/task/filter', TaskController.filterTask);
+
+app.post('/task/filter', TaskController.filterResults);

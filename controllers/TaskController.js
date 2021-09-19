@@ -7,7 +7,6 @@ module.exports = {
     },
     async createTask (req, res) {
         if (req.body.task !== '') {
-            console.log(req.body.task)
             await Task.create(req.body.task)
         }
         res.redirect('/')
@@ -35,7 +34,12 @@ module.exports = {
         res.redirect('/');
     },
     async filterTask (req, res) {
-        const results = await Task.read()
+        const results = await Task.filter("DONE")
+	    res.render('filter', { tasks: results });
+    },
+    async filterResults (req, res) {
+        console.log(req.body)
+        const results = await Task.filter(req.body)
 	    res.render('filter', { tasks: results });
     }
 }

@@ -1,0 +1,44 @@
+<%- include('header'); -%>
+<div class="header">
+    <h3 class="hero">Filter</h3>
+</div>
+<div id="form" class="d-grid gap-2">
+    <form action="/task/filter" method="POST">
+        <div class="mb-3">
+            <label for="statusLabel" class="form-label">Status</label>
+            <select class="form-select" name="the" id="statusLabel">
+                <option value="">NEW</option>
+                <option value="">DONE</option>
+                <option value="" selected>ALL</option>
+            </select>
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Filter</button>
+        </div>
+    </form>
+</div>
+<div class="list">
+    <% if(tasks.length> 0){ %>
+        <% tasks.forEach((item) => { %>
+        <div class="card">
+            <div class="card-body">
+                <%= item.task %>
+                <div class="buttons">
+                    <a href="/task/done/<%= item.id %>" class="action">
+                        <i class="far fa-check-circle"></i>
+                    </a>
+                    <a href="/task/edit/<%= item.id %>" class="action">
+                        <i class="far fa-pen"></i>
+                    </a>                        
+                    <a href="/task/delete/<%= item.id %>" class="action">
+                        <i class="far fa-trash"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+    <% } else { %>
+        <p style="text-align:center">It's time to add a task.</p>
+    <% }; %>
+</div>
+<%- include('footer'); -%>

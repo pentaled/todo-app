@@ -33,6 +33,10 @@ module.exports = {
     async updateTask(id, task) {
         const [rows] = await this.execute('UPDATE todo.tasks SET todo.tasks.task = ? WHERE todo.tasks.id = ?', [task, id])
         return rows
+    },
+    async filter(status) {
+        const [rows] = await this.execute('SELECT * FROM todo.tasks WHERE todo.tasks.status = (?);', [status])
+        return rows
     }
 }
 
