@@ -23,6 +23,7 @@
         <div class="card">
             <div class="card-body">
                 <%= item.task %>
+                <% if(item.status !== "DONE"){ %>
                 <div class="buttons">
                     <a href="/task/done/<%= item.id %>" class="action">
                         <i class="far fa-check-circle"></i>
@@ -34,6 +35,7 @@
                         <i class="far fa-trash"></i>
                     </a>
                 </div>
+                <% }; %>
             </div>
         </div>
     <% }); %>
