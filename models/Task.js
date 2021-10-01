@@ -35,6 +35,14 @@ module.exports = {
         return rows
     },
     async filter(status) {
+        /*
+    if (status = ALL) {
+            const [rows] = await this.execute('SELECT * FROM todo.tasks;')
+            return rows
+        }*/
+        console.log(status)
+        console.log(ALL)
+        console.log(status = ALL)
         const [rows] = await this.execute('SELECT * FROM todo.tasks WHERE todo.tasks.status = (?);', [status])
         return rows
     }

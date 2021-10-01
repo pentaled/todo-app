@@ -34,12 +34,12 @@ module.exports = {
         res.redirect('/');
     },
     async filterTask (req, res) {
-        const results = await Task.filter("DONE")
+        const results = await Task.filter("ALL")
 	    res.render('filter', { tasks: results });
     },
     async filterResults (req, res) {
-        console.log(req.body)
-        const results = await Task.filter(req.body)
+        console.log(req.body.status)
+        const results = await Task.filter(req.body.status)
 	    res.render('filter', { tasks: results });
     }
 }
