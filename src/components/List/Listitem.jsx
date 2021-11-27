@@ -1,33 +1,31 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Card } from 'antd'
+import { EditOutlined, DeleteOutlined, CheckCircleOutlined } from '@ant-design/icons';
 
-const ListCard = styled.div`
-    width: 100px;
-    height: 50px;
-    background-color: black;
-    border-radius: 15px;
-    padding: 5px;
-`
+// Create a margin for each card to have margin-bottom of 20px using styled-components
 
-const CardTitle = styled.h4`
-    font-size: 19px;
-`
-
-const List = ({ subtitle, buttons }) => {
-    <ListCard>
-        <CardTitle>
-            {subtitle}
-        </CardTitle>
-        {buttons}
-    </ListCard>
+const ListItem = ({ item }) => {
+    return (
+        <Card
+            style={{ width: 300 }}
+            actions={[
+                <DeleteOutlined key="delete" />,
+                <EditOutlined key="edit" />,
+                <CheckCircleOutlined key="check" />,
+            ]}
+        >
+            {item.description}
+        </Card>
+    )
 }
 
-List.defaultProps = {
-    title: "Default List"
-}
-List.propTypes = {
-    subtitle: PropTypes.string.isRequired,
-    buttons: PropTypes.node
+ListItem.propType = {
+    item: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        description:PropTypes.string,
+        status:PropTypes.string.isRequired,
+    })
 }
 
-export default List
+export default ListItem
