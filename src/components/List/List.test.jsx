@@ -8,5 +8,15 @@ test('renders List without data', () => {
   expect(element).toBeInTheDocument();
 });
 
-// test when data is not empty.
-// test the lenght of mockdata - data.length === 6
+test('renders List with data', () => {
+    render(<List data={mockData} />);
+    const element = screen.getByText(/Data/i);
+    expect(element).toBeInTheDocument();
+});
+
+test('renders List when data is six', () => {
+  render(<List data={data.length === 6}></List>);
+  const element = screen.getByText(/Data/i);
+  expect(element).toBeInTheDocument();
+});
+

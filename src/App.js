@@ -5,7 +5,7 @@ import mockData from './mock-data'
 const App = () => {
   return (
     <Container title="My List"> 
-      <List data={mockData} />
+      <List data={mockData}/>
     </Container>
     )    
 }
