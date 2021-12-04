@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     border-radius: 22px;
     min-height: 760px;
     padding: 14px;
-    
+    hidden: scroll;
 `
 
 const PaperTitle = styled.h3`
