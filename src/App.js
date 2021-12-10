@@ -1,11 +1,20 @@
-import Container from './components/List/Container'
-import List from './components/List/List'
+import React, { useState, useEffect } from 'react';
+import { Container, List } from './components/List'
 import mockData from './mock-data'
 
+// react hook - state hook or effect hook
+
 const App = () => {
+  const [dataList, setDataList] = useState([]);
+  // react cycle - componenetDidMount
+  useEffect(() => {
+    const filtered = mockData.filter(item => item.status === "NEW")
+    setDataList(filtered)
+  },[]) //array is not empty, componentDidUpdate
+
   return (
     <Container title="My List"> 
-      <List data={mockData}/>
+      <List data={dataList}/>
     </Container>
     )    
 }

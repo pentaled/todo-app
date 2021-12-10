@@ -10,13 +10,13 @@ test('renders List without data', () => {
 
 test('renders List with data', () => {
     render(<List data={mockData} />);
-    const element = screen.getByText(/Data/i);
+    const element = screen.getByText(/Buy Milk/i);
     expect(element).toBeInTheDocument();
 });
 
 test('renders List when data is six', () => {
-  render(<List data={data.length === 6}></List>);
-  const element = screen.getByText(/Data/i);
-  expect(element).toBeInTheDocument();
+  render(<List data={mockData} />);
+  const items = screen.getByTestId('list-item');
+  expect(items).toHaveLength(6);
 });
 
