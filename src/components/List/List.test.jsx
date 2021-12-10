@@ -16,8 +16,8 @@ test('renders List with data', () => {
 });
 
 test('renders List when data is six', () => {
-  render(<List data={data.length === 6}></List>);
-  const element = screen.getByText(/Data/i);
+  render(<List data={mockData}></List>);
+  const element = screen.getAllByTestId(/item/i);
   expect(element).toBeInTheDocument();
 });
 // test the length of mockData - data.length === 6
