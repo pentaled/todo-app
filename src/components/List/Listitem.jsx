@@ -11,32 +11,34 @@ const StyledCard  = styled(Card)`
 `
 const ListItem = ({ item }) => {
     const [showEdit, setShowEdit] = useState(false);
+    const [datadone, setDataDone] = useState([item.status]);
 
     const handleDelete = (id) => {
         console.log('handleDelete', id)
-    }
-    
-    const handleEdit = (id) => {
-        // #3: change showEdit to true
-        console.log('handleEdit', id, showEdit)
-    }
-    
-    const handleComplete = (id) => {
-        // #2: change status to "DONE"
-        console.log('handleComplete', id)
-    }
+    };
 
+    const handleEdit = (id) => {
+        console.log('handleDelete', id, showEdit)
+        setShowEdit(true)
+    };
+
+    const handleComplete = (id) => {
+        console.log('handleDelete', id, datadone)
+        setDataDone("DONE")
+    };
     return (
-        <StyledCard
-            style={{ width: 300 }}
-            actions={[
-                <DeleteOutlined key="delete" onClick={() => handleDelete(item.id)}/>,
-                <EditOutlined key="edit" onClick={() => handleEdit(item.id)}/>,
-                <CheckCircleOutlined key="check" onClick={() => handleComplete(item.id)}/>
-            ]}
-        >
-            <Title level={5}>{ item.description }</Title>
-        </StyledCard>
+        <Wrapper>
+            <Card
+                style={{ width: 300 }}
+                actions={[
+                    <DeleteOutlined key="delete"onClick={() => handleDelete(item.id)}/>,
+                    <EditOutlined key="edit"onClick={() => handleEdit(item.id)}/>,
+                    <CheckCircleOutlined key="check"onClick={() => handleComplete(item.id)}/>
+                ]}
+            >
+                <Title level={5}>{item.description}</Title>
+            </Card>
+        </Wrapper>
     )
 }
 

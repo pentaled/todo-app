@@ -16,7 +16,7 @@ test('renders List with data', () => {
 
 test('renders List when data is six', () => {
   render(<List data={mockData} />);
-  const items = screen.getByTestId('list-item');
+  const items = screen.getAllByTestId('list-item');
   expect(items).toHaveLength(6);
 });
 
