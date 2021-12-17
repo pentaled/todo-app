@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import List from './List';
 import mockData from '../../mock-data'
-import data from '../../mock-data';
 
 test('renders List without data', () => {
   render(<List data={[]} />);
@@ -17,7 +16,7 @@ test('renders List with data', () => {
 
 test('renders List when data is six', () => {
   render(<List data={mockData}></List>);
-  const element = screen.getAllByTestId(/item/i);
-  expect(element).toBeInTheDocument();
+  const element = screen.getAllByTestId(/list-item/i);
+  expect(element).toHaveLength(6);
 });
 // test the length of mockData - data.length === 6
