@@ -10,13 +10,13 @@ const App = () => {
   useEffect(() => {
     const filtered = mockData.filter(item => item.status === "NEW")
     setDataList(filtered)
-  },[]) //array is not empty, componentDidUpdate
+  }, []) //array is not empty, componentDidUpdate
 
   return (
-    <Container title="My List"> 
-      <List data={dataList}/>
+    <Container title="My List">
+      <List data={dataList} />
     </Container>
-    )    
+  )
 }
 
 export default App;
