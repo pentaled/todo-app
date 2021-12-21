@@ -18,8 +18,16 @@ const List = ({ data }) => {
         setDataList(newData)
     }
 
-    const actionUpdateItem = () => {
-        console.log('update')
+    const actionUpdateItem = (id, description) => {
+        const List = [...dataList]
+        List.map((item) => {
+            if (item.id === id) {
+                item.description = description
+            }
+            return item
+        })
+
+        // setDataList(dataList)
     }
 
     return (

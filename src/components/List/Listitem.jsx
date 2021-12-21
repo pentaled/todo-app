@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Card, Typography, Button } from 'antd'
+import { Card, Typography, Button, Form, Input } from 'antd'
 import { EditOutlined, DeleteOutlined, CheckCircleOutlined } from '@ant-design/icons';
 
 const { Title } = Typography
@@ -10,6 +10,7 @@ const StyledCard = styled(Card)`
     margin-bottom: 20px;
 `
 const ListItem = ({ item, actionComplete, actionUpdateItem }) => {
+    const [form] = Form.useForm();
     const [showEdit, setShowEdit] = useState(false);
 
     const handleDelete = (id) => {
@@ -21,8 +22,8 @@ const ListItem = ({ item, actionComplete, actionUpdateItem }) => {
         setShowEdit(true)
     };
 
-    const handleSave = () => {
-        actionUpdateItem()
+    const handleSubmit = (values) => {
+        actionUpdateItem(values.id, values.description)
         setShowEdit(false)
     }
 
@@ -33,11 +34,54 @@ const ListItem = ({ item, actionComplete, actionUpdateItem }) => {
             actions={[
                 <DeleteOutlined key="delete" onClick={() => handleDelete(item.id)} />,
                 <EditOutlined key="edit" onClick={() => handleEdit(item.id)} />,
-                <CheckCircleOutlined key="check" onClick={() => actionComplete(item.id)} />
+                <CheckCircleOutlined data-testid={`btn-checked-${item.id}`} key="check" onClick={() => actionComplete(item.id)} />
             ]}
         >
             {showEdit ? (
-                <Button onClick={handleSave}>Save</Button>
+                <Form
+                    name="updateForm"
+                    layout="inline"
+                    form={form}
+                    onFinish={handleSubmit}
+                    initialValues={{
+                        id: item.id,
+                        description: item.description,
+                    }}
+                >
+                    <Form.Item
+                        name="description"
+                        style={{
+                            width: 'calc(100% - 85px)',
+                            margin: 0
+                        }}
+                        rules={[
+                            {
+                                required: true, message: 'Enter a todo.'
+                            },
+                        ]}
+                    >
+                        <Input
+                            type="text"
+                            onChange={(e) =>
+                                form.setFieldsValue({ description: e.target.value })
+                            }
+                        />
+                    </Form.Item>
+
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit">
+                            SAVE
+                        </Button>
+                    </Form.Item>
+                    <Form.Item
+                        name="id"
+                        style={{ margin: 0 }}
+                    >
+                        <Input
+                            type="hidden"
+                        />
+                    </Form.Item>
+                </Form>
             ) : (
                 <Title level={5}>{item.description}</Title>
             )}
