@@ -12,20 +12,30 @@ const List = ({ data }) => {
     useEffect(() => {
         setDataList(data)
     }, [data])
-    const actionComplete = (id) => {
-        const newData = dataList.filter(item => item.id !== id)
+    const actionComplete = (id) => {const newData = dataList.filter(item => item.id !== id)
         setDataList(newData)
-        console.log('save')
+        console.log('Complete')
     }
 
-    const actionUpdateItem = () => {
-        console.log('update')
+    const actionDelete = (id) => {const newData = dataList.filter(item => item.id !== id)
+        setDataList(newData)
+        console.log('Delete')
+    }
+
+    const actionUpdateItem = (id, description) => {
+        dataList.map((item) => {//update this coon
+            if (item.id !== id) {
+                const newData = dataList.save(item.description !== description)
+                setDataList(newData)
+            }
+            return item
+        })
     }
     return (
         <Wrapper>
             {dataList.length > 0? (
                 dataList.map((item) => {
-                    return <ListItem key={item.id} item={item} actionComplete={actionComplete} actionUpdateItem={actionUpdateItem}/>
+                    return <ListItem key={item.id} item={item} actionComplete={actionComplete} actionUpdateItem={actionUpdateItem} actionDelete={actionDelete}/>
                 })
             ) : (
                 <Empty />
