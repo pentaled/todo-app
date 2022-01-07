@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Card, Typography, Button, Form, Input } from 'antd'
+import { Card, Typography, Form, Input } from 'antd'
 import { EditOutlined, DeleteOutlined, CheckCircleOutlined } from '@ant-design/icons';
+import TodoForm from '../Form/TodoForm';
 
 const { Title } = Typography;
 const StyledCard = styled(Card)`
@@ -11,7 +12,6 @@ const StyledCard = styled(Card)`
 `
 
 const ListItem = ({ item, actionComplete, actionUpdateItem, actionDelete }) => {
-    const [form] = Form.useForm();
     const [showEdit, setShowEdit] = useState(false);
 
     const handleDelete = (id) => {
@@ -26,7 +26,6 @@ const ListItem = ({ item, actionComplete, actionUpdateItem, actionDelete }) => {
     const handleSubmit = (values)  => {
         actionUpdateItem(values.id, values.description)
         setShowEdit(false)
-        console.log("same")
     };
 
     return (
@@ -34,55 +33,28 @@ const ListItem = ({ item, actionComplete, actionUpdateItem, actionDelete }) => {
                 data-testid="list-item"
                 style={{ width: 300 }}
                 actions={[
-                    <DeleteOutlined key="delete"onClick={() => handleDelete(item.id)}/>,
-                    <EditOutlined key="edit" onClick={() => handleEdit(item.id)}/>,
-                    <CheckCircleOutlined data-testid={`button-checked-${item.id}`}key="check" onClick={() => actionComplete(item.id)}/>
+                    <DeleteOutlined data-testid={`button-delete-${item.id}`} key="delete"onClick={() => handleDelete(item.id)}/>,
+                    <EditOutlined data-testid={`button-edit-${item.id}`} key="edit" onClick={() => handleEdit(item.id)}/>,
+                    <CheckCircleOutlined data-testid={`button-checked-${item.id}`} key="check" onClick={() => actionComplete(item.id)}/>
                 ]}
             >
                {showEdit? (
-                   <Form
-                    name="updateForm"
-                    layout="inline"
-                    form={form}
-                    onFinish={handleSubmit}
-                    initialValues={{
-                        id: item.id,
-                        description: item.description
-                      }}                
+                   <TodoForm
+                   id={item.id}
+                   handleSubmit={handleSubmit}
+                   initialValues={{
+                       id: item.id,
+                       description: item.description,
+                   }}>
+                   <Form.Item
+                       name="id"
+                       style={{ margin: 0 }}
                    >
-                       <Form.Item
-                            name="description"
-                            style={{
-                                width: 'calc(100% - 80px)',
-                                margin: 0
-                            }}
-                            rules={[
-                                {
-                                  required: true, message: 'Enter a todo.'
-                                },
-                            ]}
-                    >
-                        <Input
-                            type="text"
-                            onChange={ (e) =>
-                                form.setFieldsValue({ description: e.target.value })
-                            }
-                        />
-                        </Form.Item>
-                        <Form.Item>
-                            <Button type="primary" htmlType="submit">
-                                SAVE
-                            </Button>
-                        </Form.Item>
-                        <Form.Item
-                            name="id"
-                            style={{ margin: 0 }}
-                    >
-                        <Input
-                            type="hidden"
-                        />
-                        </Form.Item>
-                    </Form>   
+                       <Input
+                           type="hidden"
+                       />
+                   </Form.Item>
+               </TodoForm>
                ) : (
                 <Title level={5}>{item.description}</Title>
                )}

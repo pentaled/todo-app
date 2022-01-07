@@ -1,38 +1,71 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Empty } from 'antd';
 import ListItem from './ListItem'
+import { Empty, Button } from 'antd'
+import { PlusOutlined, CloseOutlined } from '@ant-design/icons'
+import TodoForm from '../Form/TodoForm';
 
 const Wrapper = styled.div`
     margin: 20px 10px;
 `
+
+const ButtonAdd = styled(Button)`
+    position: absolute;
+    top: 30px;
+    right: 30px;
+`
 const List = ({ data }) => {
     const [dataList, setDataList] = useState([]);
+    const [showForm, , setShowForm] = useState(false);
+
     useEffect(() => {
         setDataList(data)
     }, [data])
     const actionComplete = (id) => {const newData = dataList.filter(item => item.id !== id)
-        setDataList(newData)
-        console.log('Complete')
+        setDataList(newData)  
     }
 
     const actionDelete = (id) => {const newData = dataList.filter(item => item.id !== id)
         setDataList(newData)
-        console.log('Delete')
     }
 
     const actionUpdateItem = (id, description) => {
         dataList.map((item) => {//update this coon
-            if (item.id !== id) {
-                const newData = dataList.save(item.description !== description)
-                setDataList(newData)
+            if (id === item.id) {
+                item.description = description 
             }
             return item
         })
     }
+
+    const actionCreateItem = () => {
+        setShowForm(true)
+        
+    const actionCancelItem = () => {
+        setShowForm(false)
+    }
+    // 1. when I clicked add button, I will see the form and the icon turn into <CloseOutlined/>
+
+    // 2. when I click on the close button, I will see the form disapper the icon turn back to <PlusOutlined />
+    // 3. Add 2 test cases for #1 and #2 in `List.test.jsx`.
+        
+    }
+
     return (
         <Wrapper>
+            <ButtonAdd data-testid={`button-input`} type="primary" shape="circle" icon={<PlusOutlined />} size={"large"}/>
+                            
+                {showForm? (
+                    <Wrapper>
+                        <TodoForm handleSubmit={actionCreateItem}/>
+                        <ButtonAdd icon={<CloseOutlined/>}/>
+                    </Wrapper>
+                ) : (
+                    <TodoForm handleSubmit={actionCancelItem}/>
+                )}
+
+            
             {dataList.length > 0? (
                 dataList.map((item) => {
                     return <ListItem key={item.id} item={item} actionComplete={actionComplete} actionUpdateItem={actionUpdateItem} actionDelete={actionDelete}/>
