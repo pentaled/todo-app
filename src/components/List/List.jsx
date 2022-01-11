@@ -15,9 +15,15 @@ const ButtonAdd = styled(Button)`
     top: 30px;
     right: 30px;
 `
+
+const ButtonClose = styled(Button)`
+    position: absolute;
+    top: 30px;
+    right: 30px;
+`
 const List = ({ data }) => {
     const [dataList, setDataList] = useState([]);
-    const [showForm, , setShowForm] = useState(false);
+    const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
         setDataList(data)
@@ -41,10 +47,7 @@ const List = ({ data }) => {
 
     const actionCreateItem = () => {
         setShowForm(true)
-        
-    const actionCancelItem = () => {
-        setShowForm(false)
-    }
+    
     // 1. when I clicked add button, I will see the form and the icon turn into <CloseOutlined/>
 
     // 2. when I click on the close button, I will see the form disapper the icon turn back to <PlusOutlined />
@@ -54,16 +57,15 @@ const List = ({ data }) => {
 
     return (
         <Wrapper>
-            <ButtonAdd data-testid={`button-input`} type="primary" shape="circle" icon={<PlusOutlined />} size={"large"}/>
-                            
-                {showForm? (
-                    <Wrapper>
-                        <TodoForm handleSubmit={actionCreateItem}/>
-                        <ButtonAdd icon={<CloseOutlined/>}/>
-                    </Wrapper>
-                ) : (
-                    <TodoForm handleSubmit={actionCancelItem}/>
-                )}
+            <ButtonAdd data-testid={`button-close`} type="primary" shape="circle" icon={<PlusOutlined />} size={"large"} />                            
+            {showForm? (
+                <Wrapper>
+                    <ButtonClose data-testid={`button-close`} type="primary" shape="circle" icon={<CloseOutlined/>} size={"large"} onClick={actionCreateItem()}/>
+                    
+                </Wrapper>
+            ) : (
+                <TodoForm handleSubmit={actionCreateItem}/>
+            )}
 
             
             {dataList.length > 0? (
