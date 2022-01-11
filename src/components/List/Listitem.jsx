@@ -19,7 +19,7 @@ const ListItem = ({ item, actionComplete, actionUpdateItem, actionDelete }) => {
     };
 
     const handleEdit = (id) => {
-        console.log('handleEdit', id, showEdit)
+        console.log(id)
         setShowEdit(true)
     };
 

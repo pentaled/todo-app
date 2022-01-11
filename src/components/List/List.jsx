@@ -48,23 +48,21 @@ const List = ({ data }) => {
     const actionCreateItem = () => {
         setShowForm(true)
     
-    // 1. when I clicked add button, I will see the form and the icon turn into <CloseOutlined/>
-
-    // 2. when I click on the close button, I will see the form disapper the icon turn back to <PlusOutlined />
-    // 3. Add 2 test cases for #1 and #2 in `List.test.jsx`.
-        
+    // 1. Add 2 test cases for #1 and #2 in `List.test.jsx`.
     }
 
+    const actionCancelItem = () => {
+        setShowForm(false)
+    }
     return (
-        <Wrapper>
-            <ButtonAdd data-testid={`button-close`} type="primary" shape="circle" icon={<PlusOutlined />} size={"large"} />                            
+        <Wrapper>                           
             {showForm? (
                 <Wrapper>
-                    <ButtonClose data-testid={`button-close`} type="primary" shape="circle" icon={<CloseOutlined/>} size={"large"} onClick={actionCreateItem()}/>
-                    
+                    <ButtonClose data-testid={`button-close`} type="primary" shape="circle" icon={<CloseOutlined/>} size={"large"} onClick={actionCancelItem} />
+                    <TodoForm data-testid={`update-form`} handleSubmit={actionCreateItem}/>
                 </Wrapper>
             ) : (
-                <TodoForm handleSubmit={actionCreateItem}/>
+                <ButtonAdd data-testid={`button-open`} type="primary" shape="circle" icon={<PlusOutlined />} size={"large"} onClick={actionCreateItem}/> 
             )}
 
             
