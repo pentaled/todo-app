@@ -1,24 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Card, Typography, Button, Form, Input } from 'antd'
+import { Card, Typography, Form, Input } from 'antd'
 import { EditOutlined, DeleteOutlined, CheckCircleOutlined } from '@ant-design/icons';
+import TodoForm from '../Form/TodoForm'
 
 const { Title } = Typography
 const StyledCard = styled(Card)`
     background-color: #FDF8F5;
     margin-bottom: 20px;
 `
-const ListItem = ({ item, actionComplete, actionUpdateItem }) => {
-    const [form] = Form.useForm();
+const ListItem = ({ item, actionComplete, actionUpdateItem, actionDelete }) => {
     const [showEdit, setShowEdit] = useState(false);
 
-    const handleDelete = (id) => {
-        console.log('handleDelete', id)
-    };
-
     const handleEdit = (id) => {
-        console.log('handleDelete', id, showEdit)
         setShowEdit(true)
     };
 
@@ -32,47 +27,19 @@ const ListItem = ({ item, actionComplete, actionUpdateItem }) => {
             data-testid="list-item"
             style={{ width: 300 }}
             actions={[
-                <DeleteOutlined key="delete" onClick={() => handleDelete(item.id)} />,
-                <EditOutlined key="edit" onClick={() => handleEdit(item.id)} />,
+                <DeleteOutlined data-testid={`btn-deleted-${item.id}`} key="delete" onClick={() => actionDelete(item.id)} />,
+                <EditOutlined data-testid={`btn-edit-${item.id}`} key="edit" onClick={() => handleEdit(item.id)} />,
                 <CheckCircleOutlined data-testid={`btn-checked-${item.id}`} key="check" onClick={() => actionComplete(item.id)} />
             ]}
         >
             {showEdit ? (
-                <Form
-                    name="updateForm"
-                    layout="inline"
-                    form={form}
-                    onFinish={handleSubmit}
+                <TodoForm
+                    id={item.id}
+                    handleSubmit={handleSubmit}
                     initialValues={{
                         id: item.id,
                         description: item.description,
-                    }}
-                >
-                    <Form.Item
-                        name="description"
-                        style={{
-                            width: 'calc(100% - 85px)',
-                            margin: 0
-                        }}
-                        rules={[
-                            {
-                                required: true, message: 'Enter a todo.'
-                            },
-                        ]}
-                    >
-                        <Input
-                            type="text"
-                            onChange={(e) =>
-                                form.setFieldsValue({ description: e.target.value })
-                            }
-                        />
-                    </Form.Item>
-
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit">
-                            SAVE
-                        </Button>
-                    </Form.Item>
+                    }}>
                     <Form.Item
                         name="id"
                         style={{ margin: 0 }}
@@ -81,7 +48,7 @@ const ListItem = ({ item, actionComplete, actionUpdateItem }) => {
                             type="hidden"
                         />
                     </Form.Item>
-                </Form>
+                </TodoForm>
             ) : (
                 <Title level={5}>{item.description}</Title>
             )}
@@ -97,6 +64,7 @@ ListItem.propTypes = {
     }),
     actionComplete: PropTypes.func.isRequired,
     actionUpdateItem: PropTypes.func.isRequired,
+    actionDelete: PropTypes.func.isRequired,
 }
 
 export default ListItem

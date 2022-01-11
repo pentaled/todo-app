@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Button } from 'antd';
-import { PlusOutlined } from '@ant-design/icons'
 
 const Wrapper = styled.div`
+    position: relative;
     width: 360px;
     margin: 20px auto 0;
     border: 1px solid #000;
@@ -19,16 +18,11 @@ const PaperTitle = styled.h3`
     font-size: 25px;
 `
 
-const ButtonAdd = styled(Button)`
-    float: right
-`
-
 const Container = ({ title, children }) => {
     return (
         <Wrapper>
             <PaperTitle>
                 {title}
-                <ButtonAdd type="primary" shape="circle" icon={<PlusOutlined />} size={"large"} />
             </PaperTitle>
             {children}
         </Wrapper>
