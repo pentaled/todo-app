@@ -24,6 +24,7 @@ const ListItem = ({ item, actionComplete, actionUpdateItem, actionDelete }) => {
     };
 
     const handleSubmit = (values)  => {
+        console.log("hello world")
         actionUpdateItem(values.id, values.description)
         setShowEdit(false)
     };

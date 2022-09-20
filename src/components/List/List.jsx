@@ -8,7 +8,7 @@ import TodoForm from '../Form/TodoForm';
 
 const Wrapper = styled.div`
     margin: 20px 10px;
-`
+` 
 
 const ButtonAdd = styled(Button)`
     position: absolute;
@@ -37,6 +37,7 @@ const List = ({ data }) => {
     }
 
     const actionUpdateItem = (id, description) => {
+        console.log("hello")
         dataList.map((item) => {//update this coon
             if (id === item.id) {
                 item.description = description 
@@ -54,6 +55,7 @@ const List = ({ data }) => {
     const actionCancelItem = () => {
         setShowForm(false)
     }
+    
     return (
         <Wrapper>                           
             {showForm? (

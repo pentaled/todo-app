@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { Button, Form, Input } from 'antd'
 
+
 const TodoForm = ({ id, handleSubmit, initialValues, children }) => {
     const [form] = Form.useForm();
     return (
@@ -34,7 +35,7 @@ const TodoForm = ({ id, handleSubmit, initialValues, children }) => {
                 />
                 </Form.Item>
                 <Form.Item>
-                    <Button type="primary" htmlType="submit">
+                    <Button onClick={() => handleSubmit()} type="primary" htmlType="submit">
                         SAVE
                     </Button>
                 </Form.Item>
