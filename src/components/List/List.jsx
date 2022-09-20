@@ -29,6 +29,7 @@ const List = ({ data }) => {
         setDataList(data)
     }, [data])
     const actionComplete = (id) => {const newData = dataList.filter(item => item.id !== id)
+        console.log(id)
         setDataList(newData)  
     }
 
@@ -37,7 +38,6 @@ const List = ({ data }) => {
     }
 
     const actionUpdateItem = (id, description) => {
-        console.log("hello")
         dataList.map((item) => {//update this coon
             if (id === item.id) {
                 item.description = description 
@@ -46,13 +46,18 @@ const List = ({ data }) => {
         })
     }
 
-    const actionCreateItem = () => {
-        setShowForm(true)
-    
-    // 1. Add 2 test cases for #1 and #2 in `List.test.jsx`.
+    const actionCreateItem = (description) => {
+        const locate = data.length + 4101
+        const text = locate.toString();
+        data.push({"id": text, "description": description.description, "status": 'NEW'})
+        setShowForm(false)
     }
 
-    const actionCancelItem = () => {
+    const actionOpenButton = () => {
+        setShowForm(true)
+    }
+
+    const actionCloseButton = () => {
         setShowForm(false)
     }
     
@@ -60,11 +65,11 @@ const List = ({ data }) => {
         <Wrapper>                           
             {showForm? (
                 <Wrapper>
-                    <ButtonClose data-testid={`button-close`} type="primary" shape="circle" icon={<CloseOutlined/>} size={"large"} onClick={actionCancelItem} />
+                    <ButtonClose data-testid={`button-close`} type="primary" shape="circle" icon={<CloseOutlined/>} size={"large"} onClick={actionCloseButton} />
                     <TodoForm data-testid={`update-form`} handleSubmit={actionCreateItem}/>
                 </Wrapper>
             ) : (
-                <ButtonAdd data-testid={`button-open`} type="primary" shape="circle" icon={<PlusOutlined />} size={"large"} onClick={actionCreateItem}/> 
+                <ButtonAdd data-testid={`button-open`} type="primary" shape="circle" icon={<PlusOutlined />} size={"large"} onClick={actionOpenButton}/> 
             )}
 
             

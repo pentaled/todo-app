@@ -14,12 +14,13 @@ const StyledCard = styled(Card)`
 const ListItem = ({ item, actionComplete, actionUpdateItem, actionDelete }) => {
     const [showEdit, setShowEdit] = useState(false);
 
+    // console.log(item)
+
     const handleDelete = (id) => {
-        actionDelete(id)// must able to delete when onClick -got two hw 
+        actionDelete(id)
     };
 
-    const handleEdit = (id) => {
-        console.log(id)
+    const handleEdit = () => {
         setShowEdit(true)
     };
 

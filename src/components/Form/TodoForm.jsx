@@ -16,7 +16,7 @@ const TodoForm = ({ id, handleSubmit, initialValues, children }) => {
             <Form.Item
                     name="description"
                     style={{
-                        width: 'calc(100% - 80px)',
+                        width: 'calc(100% - 83px)',
                         margin: 0
                     }}
                     rules={[
@@ -35,7 +35,7 @@ const TodoForm = ({ id, handleSubmit, initialValues, children }) => {
                 />
                 </Form.Item>
                 <Form.Item>
-                    <Button onClick={() => handleSubmit()} type="primary" htmlType="submit">
+                    <Button type="primary" htmlType="submit">
                         SAVE
                     </Button>
                 </Form.Item>
